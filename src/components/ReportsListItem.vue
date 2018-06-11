@@ -1,5 +1,5 @@
 <template>
-  <li class="media">
+  <li>
 
     <div class="media" >
       <div class="media-left">
@@ -8,12 +8,17 @@
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading" ref="Name">{{report.title}}</h4>
+        <h4 class="media-heading" ref="Name">{{report.title}}</h4> 
+
+        <span class=""><i class="el-icon-date"></i> {{this.formattedDate}}</span>
+        
         <p>{{report.description}}</p>
-        <span class="ccc">{{this.formattedDate}}</span>
-        <a :href="dllink" download='report.pdf' class="ccc">Export as PDF</a>
+               
+        <a :href="dllink" target="_blank" download='report.pdf' class="ccc"><i class="el-icon-download"></i> Export as PDF</a>
       </div>
    </div>
+
+
 
 
     <el-dialog
@@ -71,6 +76,19 @@ export default {
 
 <style scoped>
 
+.media {
+  display: flex;
+}
+.media-left {
+  border: 1px solid #4b9cd2;
+  margin-right: 20px;
+}
+.media-body {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
 .modal-body img{
   width: 100%;
 
@@ -81,5 +99,19 @@ export default {
 .ccc {
   font-size: 15px;
   margin-bottom: 7px;
+  text-decoration: none;
+  color: red;
+
 }
+
+@media only screen and (max-width: 650px) {
+    .media {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .media-left {
+      width: 100%;
+    }
+}
+
 </style>

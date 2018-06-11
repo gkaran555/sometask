@@ -3,20 +3,26 @@
   <el-container>  
 
     <el-header>
-      <p>AQUA</p> 
+    
+        <p>VODA <i class="el-icon-circle-plus-outline"></i></p> 
+     
     </el-header>
 
-    <search-reports 
-      :myKey = "filterKey"
-      :myDir = "filterDir"
-      @searchRecords='searchReports'
-      @keyChange = "changeKey"
-      @dirChange = "changeDir" />
+    <el-main>
+          
+          <search-reports 
+          :myKey = "filterKey"
+          :myDir = "filterDir"
+          @searchRecords='searchReports'
+          @keyChange = "changeKey"
+          @dirChange = "changeDir" />
 
-<hr>
+          
 
-    <report-list
-      :reports = 'filteredApts' />
+        <report-list
+          :reports = 'filteredApts' />
+
+    </el-main>
   
   </el-container>
 
@@ -91,12 +97,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.el-header {
+ .el-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #4b9cd2;
     color: white;
-    text-align: center;
-    margin-bottom: 15px;
- 
   }
 
 </style>
